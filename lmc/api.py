@@ -1,8 +1,9 @@
 """HTTP client for the LM Studio local server REST API."""
 
-from typing import Optional
+from typing import Dict, Any, Optional, List
 
 import httpx
+
 
 DEFAULT_HOST = "http://localhost:1234"
 
@@ -12,7 +13,7 @@ def create_client(base_url: str = DEFAULT_HOST) -> httpx.Client:
     return httpx.Client(base_url=base_url, timeout=30.0)
 
 
-def list_models(client: httpx.Client) -> list:
+def list_models(client: httpx.Client) -> List[Dict[str, Any]]:
     """GET /api/v1/models - list available and loaded models."""
     response = client.get("/api/v1/models")
     response.raise_for_status()
@@ -25,7 +26,7 @@ def load_model(
     context_length: Optional[int] = None,
     flash_attention: bool = False,
     offload_kv_cache_to_gpu: bool = False,
-) -> dict:
+) -> Dict[str, Any]:
     """POST /api/v1/models/load - load a model into memory."""
     body: dict = {"model": model}
     if context_length is not None:
@@ -36,8 +37,10 @@ def load_model(
         body["offload_kv_cache_to_gpu"] = True
 
     response = client.post("/api/v1/models/load", json=body)
-    response.raise_for_status()
-    return response.json()
+    return {
+        "response": response,
+        "data": response.json() if response.status_code < 400 else None,
+    }
 
 
 def resolve_loaded_instance(client: httpx.Client, model_key: str) -> str:
@@ -52,8 +55,10 @@ def resolve_loaded_instance(client: httpx.Client, model_key: str) -> str:
     raise RuntimeError(f"No loaded instance found matching '{model_key}'")
 
 
-def unload_model(client: httpx.Client, instance_id: str) -> dict:
+def unload_model(client: httpx.Client, instance_id: str) -> Dict[str, Any]:
     """POST /api/v1/models/unload - unload a model instance from memory."""
     response = client.post("/api/v1/models/unload", json={"instance_id": instance_id})
-    response.raise_for_status()
-    return response.json()
+    return {
+        "response": response,
+        "data": response.json() if response.status_code < 400 else None,
+    }
