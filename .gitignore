@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# LM Studio local runtime data
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db
