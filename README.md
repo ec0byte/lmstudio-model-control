@@ -6,7 +6,7 @@
 
 `lmc` is a lightweight CLI tool for managing [LM Studio](https://lmstudio.ai) models on your local machine or remote server. It provides simple commands to list available models, check their loading status, and dynamically load/unload them—perfect for optimizing memory usage during development or production workflows. 
 
-`lmc` was built with [OpenCode](https://opencode.ai), [RecursiveSI/flint](https://huggingface.co/recursivesi/flint) and [Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B).
+`lmc` was built with [OpenCode](https://opencode.ai), [Recursive Flint](https://lmstudio.ai/recursivesi/flint), [Bonsai 27B](https://lmstudio.ai/models/prism-ml/bonsai-27b) and [Qwen3.5 9B](https://lmstudio.ai/models/qwen/qwen3.5-9b).
 
 ## Features
 
