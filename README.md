@@ -19,7 +19,7 @@
 Requires Python 3.9+.
 
 ```bash
-pip install lmc
+pip install lmstudio-model-control
 ```
 
 Or from source:
