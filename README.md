@@ -1,7 +1,7 @@
 # lmc — LM Studio Model Control
 
-[![Python Version](https://img.shields.io/pypi/pyversions/lmc)](https://pypi.org/project/lmc/)
-[![PyPI - Version](https://img.shields.io/pypi/v/lmc)](https://pypi.org/project/lmc/)
+[![Python Version](https://img.shields.io/pypi/pyversions/lmstudio-model-control)](https://pypi.org/project/lmstudio-model-control)
+[![PyPI - Version](https://img.shields.io/pypi/v/lmstudio-model-control)](https://pypi.org/project/lmstudio-model-control)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 `lmc` is a lightweight CLI tool for managing [LM Studio](https://lmstudio.ai) models on your local machine or remote server. It provides simple commands to list available models, check their loading status, and dynamically load/unload them—perfect for optimizing memory usage during development or production workflows. 
