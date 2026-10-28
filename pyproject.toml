@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lmstudio-model-control"
-version = "0.1.1"
+version = "0.1.2"
 description = "Simple CLI to load/unload models on a local LM Studio server"
 requires-python = ">=3.9"
 dependencies = [
